@@ -13,7 +13,11 @@ router.get('/', function(req, res, next) {
   var query = firebase.database().ref('messages').orderByKey();
   query.once('value').then(function(snapshot) {
     console.log(snapshot.exportVal());
-    res.render('index', { title: 'My Mapping', snapshot: snapshot.exportVal() });
+    var messages = [];
+    snapshot.forEach(function(childSnapshot) {
+      messages.push(childSnapshot.val());
+    });
+    res.render('index', { title: 'My Mapping', messages: messages });
   });
 });
 
