@@ -4,9 +4,23 @@ var multer = require('multer');
 var firebase=require('firebase');
 var upload = multer({ dest: './uploads/' }).single('picture');
 
+firebase.initializeApp({
+  databaseURL:"https://ydk-6f9ed.firebaseio.com"
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
+});
+
+router.get('/messages', function(req, res) {
+  var query = firebase.database().ref('messages').orderByKey();
+  query.once('value').then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      console.log(childSnapshot.key);
+      console.log(childSnapshot.val());
+    });
+  });
 });
 
 router.post('/upload', function(req, res) {/*データあげてます*/
@@ -14,11 +28,8 @@ router.post('/upload', function(req, res) {/*データあげてます*/
     if(err) {//エラーの時
       res.send("Failed to write " + req.picture.destination + " with " + err);
     } else {//成功の時
-      firebase.initializeApp({
-        databaseURL:"https://ydk-6f9ed.firebaseio.com"
-      });
       var firebaseRef =firebase.database().ref();//追加
-      var messagesRef = firebaseRef.child('messages');//追加
+      var messagesRef = firebaseRef.child('messages');// データベースの参照の取得
       messagesRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
         username: req.body.username,
         title:    req.body.title,
