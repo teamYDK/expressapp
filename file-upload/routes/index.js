@@ -4,6 +4,7 @@ var multer = require('multer');
 var firebase=require('firebase');
 var upload = multer({ dest: './uploads/' }).single('picture');
 var ExifImage = require('exif').ExifImage;
+var fs = require('fs');
 
 firebase.initializeApp({
   databaseURL:"https://ydk-6f9ed.firebaseio.com"
@@ -20,6 +21,11 @@ router.get('/', function(req, res, next) {
     });
     res.render('index', { title: 'My Mapping', messages: messages });
   });
+});
+
+router.get('/uploads/:fileid', function(req, res){//画像を表示させるために
+  var buf = fs.readFileSync('./uploads/' + req.params.fileid);
+  res.send(buf, { 'Content-Type': 'image/jpeg' }, 200);
 });
 
 router.post('/upload', function(req, res) {/*データあげてます*/
