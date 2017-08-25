@@ -12,3 +12,7 @@ block content
    h2 picture
    input(type="file", name="picture")
    input(type="submit")
+
+   ul
+     each val, key in snapshot
+       li #{key}: [#{val.username}] #{val.title} - #{val.comment}

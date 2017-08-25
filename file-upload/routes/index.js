@@ -10,14 +10,10 @@ firebase.initializeApp({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-});
-
-router.get('/messages', function(req, res) {
   var query = firebase.database().ref('messages').orderByKey();
   query.once('value').then(function(snapshot) {
     console.log(snapshot.exportVal());
-    res.render('messages', { snapshot: snapshot.exportVal() });
+    res.render('index', { title: 'My Mapping', snapshot: snapshot.exportVal() });
   });
 });
 
