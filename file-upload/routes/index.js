@@ -16,10 +16,8 @@ router.get('/', function(req, res, next) {
 router.get('/messages', function(req, res) {
   var query = firebase.database().ref('messages').orderByKey();
   query.once('value').then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      console.log(childSnapshot.key);
-      console.log(childSnapshot.val());
-    });
+    console.log(snapshot.exportVal());
+    res.render('messages', { snapshot: snapshot.exportVal() });
   });
 });
 
