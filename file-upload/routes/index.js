@@ -11,7 +11,7 @@ firebase.initializeApp({
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {//文字の表示
   var query = firebase.database().ref('messages').orderByKey();
   query.once('value').then(function(snapshot) {
     console.log(snapshot.exportVal());
@@ -23,12 +23,35 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/uploads/:fileid', function(req, res){//画像を表示させるために
+router.get('/uploads/:fileid', function(req, res){//画像の表示
   var buf = fs.readFileSync('./uploads/' + req.params.fileid);
   res.send(buf, { 'Content-Type': 'image/jpeg' }, 200);
 });
 
-router.post('/upload', function(req, res) {/*データあげてます*/
+//タグを新規登録する画面する画面は別にあったほうがよい
+router.get('/tags', function(req, res) {
+  var query = firebase.database().ref('tags').orderByKey();
+  query.once('value').then(function(snapshot) {
+    console.log(snapshot.exportVal());
+    var messages = [];
+    snapshot.forEach(function(childSnapshot) {
+      tags.push(childSnapshot.val());
+    });
+    res.render('index', { title: 'new tags', tags: tags });
+  });
+  // ここでタグの表示と登録フォームを出す　messagesデータベースに何を投稿しようとしているのか
+});
+
+router.post('/tags', function(req, res) {
+  var firebaseRef =firebase.database().ref();
+  var tagsRef = firebaseRef.child('tags');// データベースの参照の取得
+  tagsRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
+    name: req.body.name});
+  });
+  // ここでタグの登録処理をする。登録したあとにページに再び表示されるかは　express redirectと調べればわかるはず
+
+
+router.post('/upload', function(req, res) {//入力データを読み込む
   upload(req, res, function(err) {//非同期の処理　upload　が読まれて次にいく、upload終わったらfunction実行される
     if(err) {//エラーの時
       res.send("Failed to write " + req.file.destination + " with " + err);
