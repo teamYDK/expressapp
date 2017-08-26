@@ -47,6 +47,10 @@ router.post('/tags', function(req, res) {
   var tagsRef = firebaseRef.child('tags');// データベースの参照の取得
   tagsRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
     name: req.body.name});
+
+    app.get('/routes', function(req, res) {
+      res.redirect(302, "/login");
+    });//redirectのための処理
   });
   // ここでタグの登録処理をする。登録したあとにページに再び表示されるかは　express redirectと調べればわかるはず
 
