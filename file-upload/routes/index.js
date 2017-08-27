@@ -68,6 +68,8 @@ router.post('/upload', function(req, res) {//入力データを読み込む
         return dms[0] + ( dms[1] * 60 + dms[2] ) / 3600
       }
 
+
+/* 写真からの緯度経度のぬきだし */
       new ExifImage({ image : req.file.path }, function (error, image) {
         if (error) {
           console.log('Error: '+error.message);
@@ -76,6 +78,7 @@ router.post('/upload', function(req, res) {//入力データを読み込む
           var lon = convert((image['gps']['GPSLongitude']));//スコープの範囲気をつける
           console.log(lat, lon);
 
+/* デーラベースに入力内容を代入 */
           var firebaseRef =firebase.database().ref();//追加
           var messagesRef = firebaseRef.child('messages');// データベースの参照の取得
           messagesRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
