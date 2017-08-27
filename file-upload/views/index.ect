@@ -1,16 +1,63 @@
 <% extend 'layout' %>
-<h1><%= @title %></h1>
-<form method="post" enctype="multipart/form-data" action="/upload">
-  <h2>username</h2>
-  <input type="text" name="username">
-  <h2>title</h2>
-  <input type="text" name="title">
-  <h2>comment</h2>
-  <input type="text" name="comment">
-  <h2>picture</h2>
-  <input type="file" name="picture">
-  <input type="submit">
-</form>
+
+  <form method="post" enctype="multipart/form-data" action="/upload">
+    <script src="javascripts/sample4.js"></script>
+
+        <!-- ヘッダー -->
+        <div id="header" class="demo1">
+          <div class="header_top">
+    	       <p id="demo">My Mapping</p>
+          </div>
+            <div class="fixheader">
+                <ul class="topmenu">
+                    <li><a href="#">Upload</a></li>
+                    <li><a href="#">Like</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ユーザー名 -->
+          <p>ユーザー名</p>
+          <input type="text" id="user" name="username" value="Username"></br>
+          <input type="button" id="enter" value="ユーザー名" onclick="Sample2()">
+        </form>
+
+        <!-- 写真タイトル -->
+        <form name="Sample1_form" action="/upload">
+          <p>タイトル</p>
+          <input type="text" id="titlei" name="title" value="Title"></br>
+          <input type="button" id="enter" value="タイトル名" onclick="Sample1()">
+        </form>
+
+        <!-- 写真投稿 -->
+        <div id="dropzone" effectAllowed="move">
+          <p>ここに写真をドラッグしてください</br></br>
+          <p>またはファイルを選択してください</p>
+          <input type="file" value="ファイルを選択" name="picture">
+        </div>
+        <ul id="files" name="picture"></ul>
+        <script src="javascripts/sample4a.js"></script>
+
+        <!-- コメント投稿 -->
+        <div id="putcommenti" name="putcomment">
+          <p>コメント</p>
+          <input type="textarea" id="commenti" name="comment" value="Comment"></br>
+        </div>
+
+        <!-- タグ -->
+        <form name="Sample4_form" id="radio" action="/upload">
+          <p>タグ</p>
+          <input type="radio" id="radio1" name="radio" value="タグ1"/>タグ1<br>
+          <input type="radio" id="radio2" name="radio" value="タグ2"/>タグ2<br>
+          <input type="radio" id="radio3" name="radio" value="タグ3"/>タグ3<br>
+          <input type="button" value="タグ登録" onclick="Sample3()"><br>
+
+          <input type="button" id="newtag" value="新規タグ作成"><br>
+
+        </form>
+
+  </form>
 
 <ul>
   <% for item in @messages : %>
