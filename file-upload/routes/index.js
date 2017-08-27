@@ -39,7 +39,11 @@ router.get('/tags', function(req, res) {
     });
     res.render('index', { title: 'new tags', tags: tags });
   });
-  // ここでタグの表示と登録フォームを出す　messagesデータベースに何を投稿しようとしているのか
+// ここでタグの表示と登録フォームを出す　messagesデータベースに何を投稿しようとしているのか
+app.get('/routes', function(req, res) {
+  res.redirect(302, "/tags");
+});//redirectのための処理
+
 });
 
 router.post('/tags', function(req, res) {
@@ -48,9 +52,9 @@ router.post('/tags', function(req, res) {
   tagsRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
     name: req.body.name});
 
-    app.get('/routes', function(req, res) {
-      res.redirect(302, "/login");
-    });//redirectのための処理
+    //app.get('/routes', function(req, res) {
+    //  res.redirect(302, "/login");
+    //});//redirectのための処理
   });
   // ここでタグの登録処理をする。登録したあとにページに再び表示されるかは　express redirectと調べればわかるはず
 
