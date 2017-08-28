@@ -13,7 +13,7 @@ function initMap() {
   script.src = 'URL';
     document.getElementsByTagName('head')[0].appendChild(script);
 }
-/*
+
 feature = function() {
   <% for result in @messages : %>
 
@@ -30,7 +30,6 @@ feature = function() {
     attachMessage(myMarker);
 }
 
-*/
 
 // Loop through the results array and place a marker for each
 // set of coordinates.
