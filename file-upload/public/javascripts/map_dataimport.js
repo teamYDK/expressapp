@@ -13,15 +13,15 @@ function initMap() {
   script.src = 'URL';
     document.getElementsByTagName('head')[0].appendChild(script);
 }
-
-var feature = function() {
+/*
+feature = function() {
   <% for result in @messages : %>
 
     var username = <%= result.username %>;
-    var latLng = {<%= result.lat%>, <%= result.lon%>} ;
-    var title = <%= result.title%>;
-    var comment = <%= result.comment%>;
-    var picture = <%= result.file%>;
+    var latLng = {<%= result.lat %>, <%= result.lon %>} ;
+    var title = <%= result.title %>;
+    var comment = <%= result.comment %>;
+    var picture = <%= result.file %>;
     var myMarker = new google.maps.Marker({
   position: latLng,
   map: map
@@ -30,7 +30,7 @@ var feature = function() {
     attachMessage(myMarker);
 }
 
-
+*/
 
 // Loop through the results array and place a marker for each
 // set of coordinates.
