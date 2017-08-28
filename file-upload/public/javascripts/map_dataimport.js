@@ -14,19 +14,37 @@ function initMap() {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
+var feature = function() {
+  <% for result in @messages : %>
+
+    var username = <%= result.username %>;
+    var latLng = {<%= result.lat%>, <%= result.lon%>} ;
+    var title = <%= result.title%>;
+    var comment = <%= result.comment%>;
+    var picture = <%= result.file%>;
+    var myMarker = new google.maps.Marker({
+  position: latLng,
+  map: map
+<% end %>
+    });
+    attachMessage(myMarker);
+}
+
+
+
 // Loop through the results array and place a marker for each
 // set of coordinates.
-result = function(place_content) {
-  for (var i = 0; i < result.length; i++) {
-      var username = result.username[i];
-      var coords = result.geometry.coordinates;
+/*<リストの名前> = function() {
+  for (var i = 0; i < "mapの名前".length; i++) {
+      var username = "mapの名前"[i].username;
+      var coords = "mapの名前"[i].geometry.coordinates;
       var latLng = new google.maps.LatLng(coords[1],coords[0]);
-      var title = result.[i].title;
-      var comment = result.[i].comment;
-      var picture = result.[i].comment;
+      var title = "mapの名前"[i].title;
+      var comment = "mapの名前"[i].comment;
+      var picture = "mapの名前"[i].comment;
       var myMarker = new google.maps.Marker({
 	  position: latLng,
 	  map: map
       });
       attachMessage(myMarker);
-  }
+  }*/

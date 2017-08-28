@@ -5,9 +5,11 @@
 
     <script src="javascripts/map_color.js"></script>
     <script src="javascripts/map_contentString.js"></script>
+    <script src="map_dataimport.js"></script>
+    <script src="map_information.js"></script>
 
-      <script>
-    var result = [
+<!--       <script>
+    var feature = [
   <% for item in @messages : %>
       {
         username: <%= item.username %>,
@@ -18,11 +20,9 @@
       },
   <% end %>
     ];
-  </script>
+  </script> -->
 
 
-      <script src="map_dataimport.js"></script>
-      <script src="map_information.js"></script>
 
       <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtt5lsKj1OJBf3lAJTamkblXrMNLM7ay0&callback=initMap">
