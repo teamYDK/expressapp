@@ -1,0 +1,29 @@
+<!-- <script>
+  var result = [
+<% for item in @messages : %>
+    {
+      username: <%= item.username %>,
+      geometry: [<%= item.lon ?>, <%= item.lat %>],
+    },
+<% end %>
+  ];
+</script>
+
+<ul>
+  <% for item in @messages : %>
+    <li><%= item.title %><br/><img src="/uploads/<%= item.file %>" width="300"></li>
+  <% end %>
+</ul> -->
+
+
+<% extend 'layoutmap' %>
+
+<div id="map"></div>
+    <script src="javascripts/map_color.js"></script>
+    <script src="javascripts/map_contentString.js"></script>
+
+      <!-- <script src="map_dataimport.js"></script>
+      <script src="map_information.js"></script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtt5lsKj1OJBf3lAJTamkblXrMNLM7ay0&callback=initMap"
+		 async defer></script>

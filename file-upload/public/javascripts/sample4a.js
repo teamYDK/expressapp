@@ -80,8 +80,10 @@ var router = express.Router();*/
 			var src = event.target.result;
 			elImage.src = src;
 			elImage.setAttribute('title', file.name);
+			$("#image_file").text("[" + file.name + "]" + src);
 		};
 		reader.readAsDataURL(file);
+
 	}
 
 	function escapeHtml(source) {
