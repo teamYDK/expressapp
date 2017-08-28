@@ -14,7 +14,7 @@ function initMap() {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-feature = function() {
+/*var feature = function() {
   <% for result in @messages : %>
 
     var username = <%= result.username %>;
@@ -28,7 +28,7 @@ feature = function() {
 <% end %>
     });
     attachMessage(myMarker);
-}
+}*/
 
 
 // Loop through the results array and place a marker for each

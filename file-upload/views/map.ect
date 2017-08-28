@@ -3,6 +3,34 @@
 
 <div id="map"></div>
     <script src="javascripts/map_dataimport.js"></script>
+
+    <script>
+    var feature = function() {
+      <% for result in @messages : %>
+
+        var username = <%= result.username %>;
+        var latLng = [<%= result.lat %>, <%= result.lon %>];
+        var title = <%= result.title %>;
+        var comment = <%= result.comment %>;
+        var picture = <%= result.file %>;
+        var myMarker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    <% end %>
+        });
+        attachMessage(myMarker);
+    }
+
+    var contentString =
+
+    '<ul>'+
+      '<% for result in @messages : %>'+
+         '<li>feature.title<br/><img src="/uploads/<%= result.file %>" width="300"></li>'+
+      '<% end %>'
+    '</ul>';
+
+    </script>
+
     <script src="javascripts/map_information.js"></script>
     <script src="javascripts/map_color.js"></script>
     <script src="javascripts/map_contentString.js"></script>
@@ -22,12 +50,12 @@
     ];
   </script> -->
 
-<!--    <ul>
+    <ul>
       <% for item in @messages : %>
         <li><%= item.title %><br/><img src="/uploads/<%= item.file %>" width="300"></li>
       <% end %>
     </ul>
--->
+
 
 
       <script async defer
