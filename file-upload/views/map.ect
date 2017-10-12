@@ -37,6 +37,29 @@
       '<% end %>'
     '</ul>';
 
+    var myMarkers = [
+      <% for result in @messages : %>
+       {
+         username: '<%= result.username %>',
+         position: [<%= result.lat %>, <%= result.lon %>],
+         title: '<%= result.title %>',
+         comment: '<%=  result.comment %>',
+         file: '<%= result.file %>',
+       },
+       /*var marker = new google.maps.Marker({
+         position: place,
+         map: map,
+       });*/
+       <% end %>
+     ];
+
+     var contentString02 =
+
+     '<ul>'+
+          '<li>myMarkers.title<br/><img src="/uploads/myMarkers.file" width="300"><br></li>'+
+          'myMarkers.comment' +
+     '</ul>';
+
     /*var infowindow = new google.maps.InfoWindow({
       content: contentString
     });*/
@@ -69,11 +92,11 @@
     ];
   </script> -->
 
-     <ul>
+     <!-- <ul>
       <% for item in @messages : %>
         <li><%= item.title %><br/><img src="/uploads/<%= item.file %>" width="300"></li>
       <% end %>
-    </ul>
+    </ul> -->
 
 
 

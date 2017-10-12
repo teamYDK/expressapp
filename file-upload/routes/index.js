@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var firebase=require('firebase');
+var firebase = require('firebase');
 var upload = multer({ dest: './uploads/' }).single('picture');
 var ExifImage = require('exif').ExifImage;
 var fs = require('fs');
@@ -73,7 +73,7 @@ router.post('/upload', function(req, res) {//入力データを読み込む
 /*------------------------------度数秒形式から変換---------------------------*/
 
       var convert = function(dms){
-        // var dms = [ 35, 40, 47.25 ];
+         /*var dms = [ 35, 40, 47.25 ];*/
         return dms[0] + ( dms[1] * 60 + dms[2] ) / 3600
       }
 
