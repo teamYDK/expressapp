@@ -1,6 +1,6 @@
 function initMap(){
 
-  var myMarkers02 = [
+  /*var myMarkers02 = [
     {
       position:[35.719804, 138.734385],
       title: 'A',
@@ -16,7 +16,7 @@ function initMap(){
       title: 'C',
       content: 'COC'
     }
-  ];
+  ];*/
 
   function initialize() {
 
@@ -252,12 +252,6 @@ function initMap(){
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
-    //var uluru = {lat: -25.363, lng: 131.044};
-
-    //var hana = {lat: 35.719804, lng: 139.734385}
-
-    //var morning = {lat: 35.71879444444444, lng: 139.73097222222222}
-
     //var contentString =
 
     /*'<ul>'+
@@ -301,8 +295,23 @@ function initMap(){
       + '<img src="/uploads/' + markerObj.file + '" width="300">' + '<br />'
       + markerObj.comments;
 
+    var contents02 = '<div id="modal-content" style="left: 427px; top: -3.5px; display: block;">' +
+                        '<form id="detail">' +
+                        '<p id="username">' + markerObj.usename + '</p>' + '<hr>' +
+                        '<p id="comment">' + markerObj.comments + '</p>' + '<hr>' +
+                        '</form>' +
+                      '<img id=uploadimg src="uploads/' + markerObj.file + '">' +
+
+                      '<p>' +
+                        '<a id="modal-close" class="button-link">' +
+                          '<p id="close">' + '閉じる' + '</p>' +
+                        '</a>' +
+                      '</p>' +
+
+                     '</div>';
+
     infowindow = new google.maps.InfoWindow({
-      content: contents
+      content: contents02
     });
     return infowindow.open(map, markerObj);
   };
@@ -351,49 +360,20 @@ function initMap(){
       //'</div>'
 
 
-
-  /*'<div>Username<br>Comment<br>'+
-  '<ul>'+
-  //'<% for item in @messages : %>'+
-	'<img scr="/uploads/Paris.JPG'+
-  '<% end %>'+
-  '<ul>'+
-  '<div>'*/
-
     //});
-
-    /*var markerData = [
-      {
-        name:'hanamaru',
-        lat:35.719804,
-        lng:139.734385,
-      },
-      {
-        name:'morning',
-        lat:35.71879444444444,
-        lng:139.73097222222222,
-      }
-    ];
-
-    var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']});*/
+    /*var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']});*/
 
     for(var i=0, l=myMarkers.length; i<l; i+=1) {
       var markerData = myMarkers[i],
       marker = new google.maps.Marker({
         position: new google.maps.LatLng( markerData.position[0], markerData.position[1] ),
+        usename: markerData.username,
         title: markerData.title,
         comments: markerData.comment,
         file: markerData.file,
         map: map
       });
 
-
-
-      /*var marker = new google.maps.Marker({
-      position: hana,
-      map: map
-	/*  title: 'Uluru (Ayers Rock)'
-});*/
 
     google.maps.event.addListener(marker, 'click', function() {
       showInfoWindow(this);

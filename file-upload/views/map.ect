@@ -5,28 +5,6 @@
     <script src="javascripts/map_dataimport.js"></script>
 
     <script>
-     /*feature = function() {
-      <% for result in @messages : %>
-
-        var username = <%= result.username %>;
-        var latLng = [<%= result.lat %>, <%= result.lon %>];
-        var title = <%= result.title %>;
-        var comment = <%= result.comment %>;
-        var picture = <%= result.file %>;
-        var myMarker = new google.maps.Marker({
-      position: latLng,
-      map: map
-    <% end %>
-        });
-        attachMessage(myMarker);
-    }*/
-
-  /*var marker = new google.maps.Marker({
-          position: urulu,
-          map: map,
-
-    	/*  title: 'Uluru (Ayers Rock)' */
-    //});
 
     var contentString =
 
@@ -46,30 +24,9 @@
          comment: '<%=  result.comment %>',
          file: '<%= result.file %>',
        },
-       /*var marker = new google.maps.Marker({
-         position: place,
-         map: map,
-       });*/
        <% end %>
      ];
 
-     var contentString02 =
-
-     '<ul>'+
-          '<li>myMarkers.title<br/><img src="/uploads/myMarkers.file" width="300"><br></li>'+
-          'myMarkers.comment' +
-     '</ul>';
-
-    /*var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });*/
-
-    /*marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-
-
-}*/
 
     </script>
 
@@ -78,30 +35,6 @@
     <script src="javascripts/map_contentString.js"></script>
 
 
-<!--       <script>
-    var feature = [
-  <% for item in @messages : %>
-      {
-        username: <%= item.username %>,
-        geometry: [<%= item.lon %>, <%= item.lat %>],
-        title: <%= item.title%>,
-        comment: <%= item.comment%>,
-        file: <%= item.file%>
-      },
-  <% end %>
-    ];
-  </script> -->
-
-     <!-- <ul>
-      <% for item in @messages : %>
-        <li><%= item.title %><br/><img src="/uploads/<%= item.file %>" width="300"></li>
-      <% end %>
-    </ul> -->
-
-
-
       <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtt5lsKj1OJBf3lAJTamkblXrMNLM7ay0&callback=initMap">
           </script>
-           <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2h6y0_DQkYsBmQnVwMyaGIV8KaGKquBU&callback=initMap"
-		 async defer></script> -->

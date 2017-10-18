@@ -98,7 +98,7 @@ router.post('/upload', function(req, res) {//入力データを読み込む
             lon:      lon,//リクエストした値でない
             file:     req.file.filename
           }).then(function(){
-            res.send("uploaded " + req.file.originalname + " as " + req.file.filename + " Size: " + req.file.size);//画面の表示
+            res.send("Finish Upload!! " + '<br />' + "Filename: "+ req.file.originalname + " as " + req.file.filename + " Size: " + req.file.size);//画面の表示
           });
         }
       });
