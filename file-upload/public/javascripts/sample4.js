@@ -20,7 +20,7 @@ $(window).on('scroll', function() {
 });
 
 var number;
-$(function(){
+$(function(){ //ラジオボタン
     $('input').click(function(){
         if($(this).val() == number) {
             $(this).prop('checked', false);
