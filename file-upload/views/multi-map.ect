@@ -31,17 +31,37 @@
         <div class="sample-area" style="margin-top:2em;">
 
           <p id="tabcontrol">
-            <a href="#tabpage1" style="z-index:0;">MENU01</a>
+            <!-- <a href="#tabpage1" style="z-index:0;">MENU01</a>
             <a href="#tabpage2" style="z-index:0;">MENU02</a>
-            <a href="#tabpage3" style="z-indec:0;">MENU03</a>
+            <a href="#tabpage3" style="z-index:0;">MENU03</a> -->
+            <script type="text/javascript">
+                var i;
+                for (i = 1; i <= 3; i = i +1){
+                  document.write('<a href="#tabpage', i, '"style="z-index:0;">MENU0', i, '</a>');
+                }
+           </script>
           </p>
 
+          <script src="javascripts/map_dataimport.js"></script>
+          <script src="javascripts/map_information.js"></script>
+          <script src="javascripts/map_color.js"></script>
+          <script src="javascripts/map_contentString.js"></script>
+
           <div id="tabbody">
+
+            <!-- <script>
+              var tabpage =
+                '<span class="tby" id="tabpage' ,i, '">"' +
+                  '<a class="btn btn-icon btn-facebook" href="./sample3.html"><i class="fa fa-eye"></i><p>Look In Full Screen</p></a>' +
+                  '<div class="clear"></div>' +
+                  '<div id="map"></div>'
+
+            </script> -->
   			       <span class="tby" id="tabpage1">
                  <a class="btn btn-icon btn-facebook" href="./sample3.html"><i class="fa fa-eye"></i><p>Look In Full Screen</p></a>
                  <div class="clear"></div>
                  <div id="map"></div>
-                 <script src="javascripts/map_dataimport.js"></script>
+                 <!-- <script src="javascripts/map_dataimport.js"></script> -->
 
                  <script>
 
@@ -62,6 +82,7 @@
                       title: '<%= result.title %>',
                       comment: '<%=  result.comment %>',
                       file: '<%= result.file %>',
+                      tag: '<%= result.tag %>'
                     },
                     <% end %>
                   ];
@@ -69,9 +90,9 @@
 
                  </script>
 
-                 <script src="javascripts/map_information.js"></script>
+                 <!-- <script src="javascripts/map_information.js"></script>
                  <script src="javascripts/map_color.js"></script>
-                 <script src="javascripts/map_contentString.js"></script>
+                 <script src="javascripts/map_contentString.js"></script> -->
                </span>
   			       <span class="tby" id="tabpage2">
                  タブ2の中身<br>

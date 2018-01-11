@@ -62,7 +62,7 @@ router.get('/tags', function(req, res) {
     snapshot.forEach(function(childSnapshot) {
       tags.push(childSnapshot.val());
     });
-    res.render('index', { title: 'new tags', tags: tags });
+    res.render('tags', { title: 'new tags', tags: tags });
   });
 // ここでタグの表示と登録フォームを出す　messagesデータベースに何を投稿しようとしているのか
 });
@@ -100,16 +100,22 @@ router.post('/upload', function(req, res) {//入力データを読み込む
           var lon = convert((image['gps']['GPSLongitude']));//スコープの範囲気をつける
           console.log(lat, lon);
 
-/* デーラベースに入力内容を代入 */
+/* データベースに入力内容を代入 */
+/*usersRef.child("tag").set({
+  tag:  req.body.tag
+});*/
           var firebaseRef =firebase.database().ref();//追加
           var messagesRef = firebaseRef.child('messages');// データベースの参照の取得
+          var firetagRef = firebase.database().ref('tag');
+          var tagRef = messagesRef.child('tags');
           messagesRef.push({ // ...　囲んでる部分の描き方は変わらない 非同期処理
             username: req.body.username,
             title:    req.body.title,
             comment:  req.body.comment,
             lat:      lat,//リクエストした値でない
             lon:      lon,//リクエストした値でない
-            file:     req.file.filename
+            file:     req.file.filename,
+            tag: req.body.tag
           }).then(function(){
             res.send("Finish Upload!! " + '<br />' + "Filename: "+ req.file.originalname + " as " + req.file.filename + " Size: " + req.file.size);//画面の表示
           });
