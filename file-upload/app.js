@@ -11,13 +11,20 @@ var users = require('./routes/users');
 
 var app = express();
 
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: 'hzhffsjd1',
+  api_key: '714428761432166',
+  api_secret: 'IiT_eI1Ds1xFf7ItjP-IKtXU0jI'
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
 app.set('view engine', 'ect');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,7 +40,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {

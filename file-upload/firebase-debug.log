@@ -1,0 +1,43 @@
+[debug] [2017-10-09T02:53:57.622Z] ----------------------------------------------------------------------
+[debug] [2017-10-09T02:53:57.626Z] Command:       /Users/juko/.nodebrew/node/v8.4.0/bin/node /Users/juko/.nodebrew/current/bin/firebase serve
+[debug] [2017-10-09T02:53:57.626Z] CLI Version:   3.13.1
+[debug] [2017-10-09T02:53:57.626Z] Platform:      darwin
+[debug] [2017-10-09T02:53:57.626Z] Node Version:  v8.4.0
+[debug] [2017-10-09T02:53:57.627Z] Time:          Mon Oct 09 2017 11:53:57 GMT+0900 (JST)
+[debug] [2017-10-09T02:53:57.627Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-09T02:53:57.657Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-09T02:53:57.657Z] > authorizing via signed-in user
+[debug] [2017-10-09T02:53:57.659Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-09T02:53:57.659Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/-Jhrib4LF-T12lxywcGh24oDxFurDBvTnuKvLQCws0nIB2dxLJqaHv919PHrlE2X',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Oct 09 2017 11:53:57 GMT+0900 (JST)
+[debug] [2017-10-09T02:53:57.801Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T02:53:57.818Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymap-58522  
+ Mon Oct 09 2017 11:53:57 GMT+0900 (JST)
+[debug] [2017-10-09T02:53:58.658Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T02:53:58.659Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymap-58522/tokens  
+ Mon Oct 09 2017 11:53:58 GMT+0900 (JST)
+[debug] [2017-10-09T02:53:59.507Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/juko/expressapp/file-upload'...
+[info] 
+[debug] [2017-10-09T02:53:59.511Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymap-58522  
+ Mon Oct 09 2017 11:53:59 GMT+0900 (JST)
+[debug] [2017-10-09T02:54:00.429Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T02:54:00.429Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/289455862436/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 11:54:00 GMT+0900 (JST)
+[debug] [2017-10-09T02:54:01.247Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-09T02:54:01.310Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/Users/juko/.nodebrew/node/v8.4.0/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:17)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+    at Server.emit (events.js:207:7)
+    at emitListeningNT (net.js:1349:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.

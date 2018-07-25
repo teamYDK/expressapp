@@ -7,4 +7,5 @@ $(function() {
                 $header.removeClass('fixed');
             }
         });
+
 });
